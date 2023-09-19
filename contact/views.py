@@ -1,13 +1,13 @@
 from django.shortcuts import render
 
-def home(request):
+def index(request):
     context = {
         'teste': 'tetsejjfjfsdadadasjfjfj',
     }
 
     return render(
         request,
-        'home.html',
+        'contact/index.html',
         context
     )
     
