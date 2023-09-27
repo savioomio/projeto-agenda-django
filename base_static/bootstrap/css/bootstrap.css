@@ -114,7 +114,8 @@
   --bs-border-radius-pill: 50rem;
   --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  --bs-box-shadow-lg: 0 2rem 6rem rgba(0, 0, 0, 0.175);
+  --bs-box-shadow-big: 0 0rem 10rem rgba(0, 0, 0, 0.425); /* adicionado */
   --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
   --bs-focus-ring-width: 0.25rem;
   --bs-focus-ring-opacity: 0.25;
@@ -7395,6 +7396,10 @@ textarea.form-control-lg {
 .shadow-lg {
   box-shadow: var(--bs-box-shadow-lg) !important;
 }
+/* adicionado */
+  .shadow-big {
+    box-shadow: var(--bs-box-shadow-big) !important;
+  }
 
 .shadow-none {
   box-shadow: none !important;
@@ -7689,6 +7694,10 @@ textarea.form-control-lg {
 
 .w-100 {
   width: 100% !important;
+}
+
+.w-90 {
+  width: 90% !important;
 }
 
 .w-auto {

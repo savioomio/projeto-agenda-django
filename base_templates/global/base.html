@@ -1,5 +1,6 @@
 {% include "global/partials/head.html" %}
   <title> {% block title %} <!-- Titulo do site --> {% endblock title %} </title>
+  {% include "global/partials/menu.html" %}
   {% include "global/partials/main.html" %}
   {% block corpo %} <!-- body do site --> {% endblock corpo %}
 {% include "global/partials/scripts.html" %}
