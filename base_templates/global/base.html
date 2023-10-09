@@ -9,8 +9,9 @@
     {% include "global/partials/header.html" %} <!-- Menu do site -->
     <main class="w-100 d-flex justify-content-center align-items-center h-auto min-vh-91 shadow-big">
       {% block corpo %} <!-- body do site --> {% endblock corpo %}
+      {% include "global/partials/_paginator.html" %}
     </main>
-    {% include "global/partials/_paginator.html" %}
+    
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </body>

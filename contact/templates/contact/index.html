@@ -3,7 +3,7 @@
 {% block corpo %}
 
 <div class="w-100 mx-3 mt-3 table-responsive">
-    {% if contacts %}
+    {% if page_obj %}
     <table class=" table table-hover">
         <thead class="table-light">
           <tr>
@@ -16,7 +16,7 @@
         </thead>
         <tbody class="table-group-divider">
     
-            {% for contact in contacts %}
+            {% for contact in page_obj %}
                     <tr>
                         <th scope="row">
                             <a 
@@ -59,27 +59,12 @@
       </div>
 </div>
 {% endif %}
-{% comment %} 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#search').on('input', function() {
-            var searchValue = $(this).val();
-            $.ajax({
-                url: '{% url "contact:search" %}',
-                type: 'GET',
-                data: { q: searchValue },
-                success: function(data) {
-                    $('#search-results').html(data);
-                }
-            });
-        });
-
-        // Manipular o envio do formulário para evitar recarregar a página
-        $('form[role="search"]').on('submit', function(event) {
-            event.preventDefault();
-        });
-    });
-</script> {% endcomment %}
-
+    const inputSearch = document.getElementById("search")
+    inputSearch.addEventListener("change",(e)=>{
+        console.log("oi")
+    })
+    console.log(inputSearch)
+</script>
 {% endblock corpo %}
