@@ -1,6 +1,17 @@
-{% include "global/partials/head.html" %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  {% include "global/partials/head.html" %}
   <title> {{site_title}} - Agenda </title>
-  {% include "global/partials/menu.html" %}
-  {% include "global/partials/main.html" %}
-  {% block corpo %} <!-- body do site --> {% endblock corpo %}
-{% include "global/partials/scripts.html" %}
+</head>
+<body>
+  <div class="container">
+    {% include "global/partials/header.html" %} <!-- Menu do site -->
+    <main class="w-100 d-flex justify-content-center align-items-center h-auto min-vh-91 shadow-big">
+      {% block corpo %} <!-- body do site --> {% endblock corpo %}
+    </main>
+    {% include "global/partials/_paginator.html" %}
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</body>
+</html>
