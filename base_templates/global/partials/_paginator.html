@@ -1,11 +1,11 @@
 {% if page_obj %}
 <nav aria-label="Page navigation">
-  <ul class="pagination d-flex justify-content-center ">
+  <ul class="pagination w-100 d-flex justify-content-center">
     {% if page_obj.has_previous %}
     <li class="page-item ">
       <a class="page-link focus-ring focus-ring-warning bg-dark" href="?page=1&q={{ request.GET.q.strip }}" aria-label="First">
         <span aria-hidden="true" class="text-warning">
-          <svg xmlns="http://www.w3.org/2000/svg" height="27" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 17">
+          <svg xmlns="http://www.w3.org/2000/svg" height="23" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 17">
             <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
             <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
           </svg>
@@ -15,7 +15,7 @@
     <li class="page-item">
       <a class="page-link focus-ring focus-ring-warning bg-dark" href="?page={{ page_obj.previous_page_number }}&q={{ request.GET.q.strip }}" aria-label="Previous">
         <span aria-hidden="true" class="text-warning">
-          <svg xmlns="http://www.w3.org/2000/svg" height="27" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 17">
+          <svg xmlns="http://www.w3.org/2000/svg" height="23" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 17">
             <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
           </svg>
         </span>
@@ -23,13 +23,13 @@
     </li>
     {% endif %}
     <li class="page-item disabled">
-      <span class="page-link text-warning bg-dark text-warning p-2">Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+      <span class="page-link text-warning bg-dark text-warning p-2 fs-7 ">Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
     </li>
     {% if page_obj.has_next %}
     <li class="page-item">
       <a class="page-link focus-ring focus-ring-warning bg-dark" href="?page={{ page_obj.next_page_number }}&q={{ request.GET.q.strip }}" aria-label="Next">
         <span aria-hidden="true" class="text-warning">
-          <svg xmlns="http://www.w3.org/2000/svg" height="27" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 17">
+          <svg xmlns="http://www.w3.org/2000/svg" height="23" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 17">
             <g transform="scale(-1, 1) translate(-16, 0)">
               <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
             </g>
@@ -40,7 +40,7 @@
     <li class="page-item">
       <a class="page-link focus-ring focus-ring-warning bg-dark" href="?page={{ page_obj.paginator.num_pages }}&q={{ request.GET.q.strip }}" aria-label="Last">
         <span aria-hidden="true" class="text-warning">
-          <svg xmlns="http://www.w3.org/2000/svg" height="27" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 17">
+          <svg xmlns="http://www.w3.org/2000/svg" height="23" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 17">
             <g transform="scale(-1, 1) translate(-16, 0)">
                 <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                 <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>

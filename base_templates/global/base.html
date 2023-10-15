@@ -5,9 +5,10 @@
   <title> {{site_title}} - Agenda </title>
 </head>
 <body>
+
   <div class="container">
     {% include "global/partials/header.html" %} <!-- Menu do site -->
-    <main class="w-100 d-flex justify-content-center h-auto min-vh-91 shadow-big">
+    <main class="w-100 d-flex justify-content-center h-auto min-vh-91 shadow-big my-3 rounded-4">
       {% block corpo %} <!-- body do site --> {% endblock corpo %}
       {% include "global/partials/_paginator.html" %}
     </main>
