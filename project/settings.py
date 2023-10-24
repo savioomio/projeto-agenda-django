@@ -105,9 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 #(para o sistema em produção)
-ALLOWED_HOSTS = ['sistema-treinos-de-savio.up.railway.app']
+ALLOWED_HOSTS = ['projeto-agenda-django-production.up.railway.app']
 CSRF_TRUSTED_ORIGINS = [
-    "https://sistema-treinos-de-savio.up.railway.app",
+    "https://projeto-agenda-django-production.up.railway.app",
 ]
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
