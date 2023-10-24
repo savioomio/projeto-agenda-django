@@ -8,6 +8,23 @@ class ContactForm(forms.ModelForm):
         fields = (
             'first_name', 'last_name', 'phone',  
         )
+        widgets = {
+            'first_name': forms.TextInput(
+                attrs={
+                    'class': 'form-control border-1 border-warning shadow-big',
+                }
+            ),
+            'last_name': forms.TextInput(
+                attrs={
+                    'class': 'form-control border-1 border-warning shadow-big',
+                }
+            ),
+            'phone': forms.TextInput(
+                attrs={
+                    'class': 'form-control border-1 border-warning shadow-big',
+                }
+            ),
+        }
 
     def clean(self):
         cleaned_data = self.cleaned_data
