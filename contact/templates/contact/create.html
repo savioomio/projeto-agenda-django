@@ -10,7 +10,7 @@
         {% for field in form %}
       
         <div class="col-md-4 position-relative">
-          <label for="{{field.id_for_label}}" class="form-label text-shadow-big">{{field.label}}</label>
+          <label for="{{field.id_for_label}}" class="form-label fw-bold text-shadow-big">{{field.label}}</label>
           {{ field }}
           {{ field.errors }}
           {% if field.help_text %}
@@ -70,7 +70,7 @@
           </div>
         </div> {% endcomment %}
         <div class="col-12">
-          <input class="btn btn-warning shadow-big w-100" type="submit"></input>
+          <input class="btn btn-warning shadow-lg w-100" type="submit"></input>
         </div>
       </form>
 </div>
