@@ -4856,6 +4856,18 @@ textarea.form-control-lg {
   top: -1px;
 }
 
+.errorlist{
+  margin: 0;
+  padding: 0;
+}
+
+.errorlist > li{
+  color: red;
+  padding: 5px;
+  list-style: none;
+  font-weight: 600;
+}
+
 .alert {
   --bs-alert-bg: transparent;
   --bs-alert-padding-x: 1rem;

@@ -34,7 +34,7 @@ class ContactForm(forms.ModelForm):
 
         if first_name == last_name:
             msg = ValidationError(
-                'Primeiro nome não pode ser igual o segundo',
+                '❌ Primeiro nome não pode ser igual o segundo',
                 code='invalid'
             )  
             self.add_error('first_name', msg)
@@ -53,7 +53,7 @@ class ContactForm(forms.ModelForm):
             self.add_error(
                 'first_name',
                 ValidationError(
-                    'veio do add_erro',
+                    ' ❌ Veio do add_erro',
                     code='invalid'
                 )
             )
