@@ -4,7 +4,12 @@
 
 <div class="container m-3">
     <h2 class="mb-3 fs-2 form-text text-center">Create Contact</h2>
-    <form class="row g-3 d-flex flex-column align-items-center" action=" {% url "contact:create" %} " method="POST" enctype="multipart/form-data" >
+    <form 
+    class="row g-3 d-flex flex-column align-items-center" 
+    action=" {{ form_action }}" 
+    method="POST" 
+    enctype="multipart/form-data" 
+    >
         {% csrf_token %}
 
         {% for field in form %}
