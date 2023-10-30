@@ -63,6 +63,7 @@ def update(request, contact_id):
     context = {
         'form': ContactForm(instance=contact),
         'form_action': form_action,
+        'site_title': contact.first_name,
     }
 
     return render(
