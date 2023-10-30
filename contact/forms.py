@@ -7,23 +7,40 @@ class ContactForm(forms.ModelForm):
         model = models.Contact
         fields = (
             'first_name', 'last_name', 'phone',  
+            'email', 'category', 'description', 
         )
         widgets = {
             'first_name': forms.TextInput(
                 attrs={
-                    'class': 'form-control border-1 border-warning shadow-lg',
+                    'class': 'form-control border-1 border-warning shadow-big mb-2',
                 }
             ),
             'last_name': forms.TextInput(
                 attrs={
-                    'class': 'form-control border-1 border-warning shadow-lg',
+                    'class': 'form-control border-1 border-warning shadow-big mb-2',
                 }
             ),
-            'phone': forms.TextInput(
+            'phone': forms.NumberInput(
                 attrs={
-                    'class': 'form-control border-1 border-warning shadow-lg',
+                    'class': 'form-control border-1 border-warning shadow-big mb-2',
                 }
             ),
+            'email': forms.EmailInput(
+                attrs={
+                    'class': 'form-control border-1 border-warning shadow-big mb-2',
+                }
+            ),
+            'category': forms.Select(
+                attrs={
+                    'class': 'form-select border-1 border-warning shadow-big mb-2 ',
+                }
+            ),
+            'description': forms.Textarea(
+                attrs={
+                    'class': 'form-control border-1 border-warning shadow-big mb-3',
+                }
+            ),
+
         }
 
     def clean(self):
@@ -46,14 +63,10 @@ class ContactForm(forms.ModelForm):
         first_name = self.cleaned_data.get('first_name')
         if first_name == 'ABC':
 
-            # raise ValidationError(
-            #     'não digite ABC neste campo',
-            #     code='invalid' 
-            # )
             self.add_error(
                 'first_name',
                 ValidationError(
-                    ' ❌ Veio do add_erro',
+                    ' ❌ Não pode colocar ABC no primeiro nome',
                     code='invalid'
                 )
             )

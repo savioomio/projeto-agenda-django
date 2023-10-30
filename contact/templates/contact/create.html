@@ -2,13 +2,13 @@
 
 {% block corpo %}
 
-<div class="container m-3 ">
-    <h2 class="mb-3 fs-4 form-text">Create Contact</h2>
-    <form class="row g-3 needs-validation" action=" {% url "contact:create" %} " method="POST" enctype="multipart/form-data" >
+<div class="container m-3">
+    <h2 class="mb-3 fs-2 form-text text-center">Create Contact</h2>
+    <form class="row g-3 d-flex flex-column align-items-center" action=" {% url "contact:create" %} " method="POST" enctype="multipart/form-data" >
         {% csrf_token %}
 
         {% for field in form %}
-          <div class="col-md-4 position-relative">
+          <div class="col-md-6">
             <label for="{{field.id_for_label}}" class="form-label fw-bold text-shadow-big">{{field.label}}</label>
             {{ field }}
             {{ field.errors }}
@@ -31,45 +31,8 @@
             </div>
           </div>
         {% endif %}
-
-        {% comment %}<div class="col-md-4 position-relative">
-          <label for="id_last_name" class="form-label">Last name</label>
-          <input type="text" class="form-control border-1 borlastarning shadow-big" name="last_name" maxlength="255" id="id_last_name" required>
-        </div>
-        <div class="col-md-4 position-relative">
-            
-          <label for="validationTooltipUsername" class="form-label">Photo</label>
-          <div class="input-group">
-            <input type="file" class="form-control border-1 border-warning shadow-big" aria-label="file example" >
-            <div class="invalid-feedback">Example invalid form file feedback</div>
-          </div>
-        </div>
-        <div class="col-md-6 position-relative">
-          <label for="validationTooltip03" class="form-label">City</label>
-          <input type="text" class="form-control border-1 border-warning shadow-big" id="validationTooltip03" >
-          <div class="invalid-tooltip">
-            Please provide a valid city.
-          </div>
-        </div>
-        <div class="col-md-3 position-relative">
-          <label for="validationTooltip04" class="form-label">State</label>
-          <select class="form-select border-1 border-warning shadow-big" id="validationTooltip04" >
-            <option selected disabled value="">Choose...</option>
-            <option>...</option>
-          </select>
-          <div class="invalid-tooltip">
-            Please select a valid state.
-          </div>
-        </div>
-        <div class="col-md-3 position-relative">
-          <label for="validationTooltip05" class="form-label">Zip</label>
-          <input type="text" class="form-control border-1 border-warning shadow-big" id="validationTooltip05" >
-          <div class="invalid-tooltip">
-            Please provide a valid zip.
-          </div>
-        </div> {% endcomment %}
-        <div class="col-12">
-          <input class="btn btn-warning shadow-lg w-100" type="submit"></input>
+        <div class="col-6">
+          <input class="btn btn-warning shadow-big w-100 mb-5" type="submit"></input>
         </div>
       </form>
 </div>
