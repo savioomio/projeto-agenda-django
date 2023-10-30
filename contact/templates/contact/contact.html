@@ -2,23 +2,19 @@
 
 {% block corpo %}
 
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-        <div class="col-md-4">
+<div class="w-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="d-flex flex-column justify-content-center ">
+        {% comment %} <div class="col-md-4">
             <img  class="img-fluid rounded-start" alt="...">
-        </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"> {{ contact.first_name }} {{ contact.last_name }}</h5>
-                    <p class="card-text">{{ contact.email }}</p>
-                    <p class="card-text">{{ contact.phone }}</p>
-                    <p class="card-text">{{ contact.created_date }}</p>
-                    <p class="card-text">{{ contact.category.name }}</p>
-                    <p class="card-text">{{ contact.description }}</p>
-                    <p class="card-text"><small class="text-body-secondary"> ID: {{ contact.id }}</small></p>
-                </div>
-            </div>
-        </div>
+        </div> {% endcomment %}
+        <h5 class="fs-2"> {{ contact.first_name }} {{ contact.last_name }}</h5>
+        <p class="fs-5">{{ contact.email }}</p>
+        <p class="fs-5">{{ contact.phone }}</p>
+        <p class="fs-5">{{ contact.created_date }}</p>
+        <p class="fs-5">{{ contact.category.name }}</p>
+        <p class="fs-5">{{ contact.description }}</p>
+        <p class="fs-5"><small class="text-body-secondary"> ID: {{ contact.id }}</small></p>
     </div>
+</div>
 
 {% endblock corpo %}
