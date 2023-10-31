@@ -3,11 +3,25 @@ from django.core.exceptions import ValidationError
 from . import models
 
 class ContactForm(forms.ModelForm):
+    picture = forms.ImageField(
+        widget=forms.FileInput(
+            attrs={
+                'class': 'form-control border-1 border-warning shadow-big mb-2',
+                'placeholder': 'Aqui veio do init',
+                'accept': 'image/*',
+            }
+        )
+    )
     class Meta:
         model = models.Contact
         fields = (
-            'first_name', 'last_name', 'phone',  
-            'email', 'category', 'description', 
+            'first_name', 
+            'last_name', 
+            'phone',  
+            'email', 
+            'category',
+            'picture',
+            'description',
         )
         widgets = {
             'first_name': forms.TextInput(
@@ -70,6 +84,5 @@ class ContactForm(forms.ModelForm):
                     code='invalid'
                 )
             )
-
-
+            
         return first_name

@@ -4,9 +4,11 @@
 
 <div class="w-100 d-flex flex-column justify-content-center align-items-center">
     <div class="d-flex flex-column justify-content-center mx-3">
-        {% comment %} <div class="col-md-4">
-            <img  class="img-fluid rounded-start" alt="...">
-        </div> {% endcomment %}
+        <div class="col-md-4">
+            {% if contact.picture %}
+                <img  class="img-fluid rounded-start" alt=" {{contact.first_name}} {{contact.last_name}} " src="{{ contact.picture.url}} ">
+            {% endif %}
+        </div>
         <h5 class="fs-2"> {{ contact.first_name }} {{ contact.last_name }}</h5>
         <p class="fs-5">{{ contact.email }}</p>
         <p class="fs-5">{{ contact.phone }}</p>

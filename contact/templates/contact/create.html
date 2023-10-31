@@ -22,7 +22,11 @@
                 {{ field.help_text }}
               </p>
             {% endif %}
-          </div>
+
+          </div>     
+          {% if field.name == 'picture' and field.value.url %}
+            <img src="{{ field.value.url }}" class="img-fluid rounded-start border border-1 border-warning shadow-big mb-2 col-md-5" alt="">
+          {% endif %}
         {% endfor %}
 
         {% if form.non_field_errors %}
@@ -37,7 +41,7 @@
           </div>
         {% endif %}
         <div class="col-6">
-          <input class="btn btn-warning shadow-big w-100 mb-5" type="submit"></input>
+          <input class="btn btn-warning shadow-big w-100 mb-5 fs-5 fw-semibold" type="submit"></input>
         </div>
       </form>
 </div>
