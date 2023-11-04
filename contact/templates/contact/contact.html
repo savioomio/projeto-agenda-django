@@ -1,35 +1,59 @@
 {% extends "global/base.html" %}
 
 {% block corpo %}
+<div class="d-flex align-items-center justify-content-center mx-lg-5 m-4 w-100">
+    <div class="d-flex flex-wrap align-items-center w-100 justify-content-center">
+      <div class="mb-3 d-flex align-items-center justify-content-center mx-lg-4">
+        {% if contact.picture %}
+            <img alt=" {{contact.first_name}} {{contact.last_name}} " src="{{ contact.picture.url}} " class="img-fluid rounded-circle border border-4 border-warning shadow-big">
+        {% else %}
+        
+        {% endif %}
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center mx-lg-4">
+        <div class="card-body">
+          <h5 class="card-title fs-1 mb-3">{{ contact.first_name }} {{ contact.last_name }}</h5>
+          <p class=""><span class="fw-bold">Email: </span> <br>{{ contact.email }}</p>
+          <p class=""><span class="fw-bold">Telefone:</span> <br> {{ contact.phone }}</p>
+          <p class=""><span class="fw-bold">Data de Criação:</span> <br> {{ contact.created_date }}</p>
+          <p class=""><span class="fw-bold">Categoria:</span> <br> {{ contact.category.name }}</p>
+          <p class=""><span class="fw-bold">Descrição:</span> <br> {{ contact.description }}</p>
+          <p class="card-text"><small class="text-body-secondary"><span class="fw-bold">ID:</span> <br> {{ contact.id }}</small></p>
 
-<div class="w-100 d-flex flex-column justify-content-center align-items-center">
-    <div class="d-flex flex-column justify-content-center mx-3">
-        <div class="col-md-4">
+          <div class="d-flex justify-content-around ">
+                <a class="btn btn-primary fw-semibold w-100 me-2" href=" {% url "contact:update" contact.id %} ">Editar</a>
+                <form action="{% url "contact:delete" contact.id %}" class="w-100 ms-2" method="post">
+                    {% csrf_token %}
+                    {% if confirmation == 'no' %}
+                        <input type="hidden" name="confirmation" value="yes" >
+                        <button class="btn fw-semibold btn-danger w-100" type="submit">Confirma?</button>
+                    {% else %}
+                        <button class="btn fw-semibold btn-danger w-100" type="submit">Deletar</button>
+                    {% endif %}
+            
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% comment %} 
+    <div class="d-fle flex-wrap">
+        <div class="d-flex">
             {% if contact.picture %}
                 <img  class="img-fluid rounded-start" alt=" {{contact.first_name}} {{contact.last_name}} " src="{{ contact.picture.url}} ">
             {% endif %}
         </div>
-        <h5 class="fs-2"> {{ contact.first_name }} {{ contact.last_name }}</h5>
-        <p class="fs-5">{{ contact.email }}</p>
-        <p class="fs-5">{{ contact.phone }}</p>
-        <p class="fs-5">{{ contact.created_date }}</p>
-        <p class="fs-5">{{ contact.category.name }}</p>
-        <p class="fs-5">{{ contact.description }}</p>
-        <p class="fs-5"><small class="text-body-secondary"> ID: {{ contact.id }}</small></p>
-        <div class="d-flex">    
-            <a class="btn btn-primary w-25 me-3" href=" {% url "contact:update" contact.id %} ">Editar</a>
-            <form action="{% url "contact:delete" contact.id %}" class="w-25" method="post">
-                {% csrf_token %}
-                {% if confirmation == 'no' %}
-                    <input type="hidden" name="confirmation" value="yes" >
-                    <button class="btn btn-danger w-100" type="submit">Confirma?</button>
-                {% else %}
-                    <button class="btn btn-danger w-100" type="submit">Deletar</button>
-                {% endif %}
-                
-            </form>
+        <div class="d-flex flex-column w-100">
+            <h5 class="fs-2"> {{ contact.first_name }} {{ contact.last_name }}</h5>
+            <p class="fs-5">{{ contact.email }}</p>
+            <p class="fs-5">{{ contact.phone }}</p>
+            <p class="fs-5">{{ contact.created_date }}</p>
+            <p class="fs-5">{{ contact.category.name }}</p>
+            <p class="fs-5">{{ contact.description }}</p>
+            <p class="fs-5"><small class="text-body-secondary"> ID: {{ contact.id }}</small></p>
+            
         </div>
-    </div>
-</div>
+    </div> {% endcomment %}
 
 {% endblock corpo %}
