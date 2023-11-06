@@ -4,6 +4,7 @@ from . import models
 
 class ContactForm(forms.ModelForm):
     picture = forms.ImageField(
+        required=False,
         widget=forms.FileInput(
             attrs={
                 'class': 'form-control border-1 border-warning shadow-big mb-2',
