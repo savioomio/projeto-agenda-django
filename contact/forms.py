@@ -7,7 +7,6 @@ class ContactForm(forms.ModelForm):
         widget=forms.FileInput(
             attrs={
                 'class': 'form-control border-1 border-warning shadow-big mb-2',
-                'placeholder': 'Aqui veio do init',
                 'accept': 'image/*',
             }
         )

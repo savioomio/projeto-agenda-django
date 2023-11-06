@@ -25,7 +25,9 @@
 
           </div>     
           {% if field.name == 'picture' and field.value.url %}
-            <img src="{{ field.value.url }}" class="img-fluid rounded-start border border-1 border-warning shadow-big mb-2 col-md-5" alt="">
+            <div class="col-md-6">
+              <img src="{{ field.value.url }}" class="img-fluid border border-1 border-warning shadow-big mb-2 rounded-2 w-100" style="object-fit: cover; " alt="">
+            </div>
           {% endif %}
         {% endfor %}
 

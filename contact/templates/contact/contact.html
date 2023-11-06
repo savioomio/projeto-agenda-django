@@ -1,16 +1,13 @@
 {% extends "global/base.html" %}
 
 {% block corpo %}
-<div class="d-flex align-items-center justify-content-center mx-lg-5 m-4 w-100">
-    <div class="d-flex flex-wrap align-items-center w-100 justify-content-center">
-      <div class="mb-3 d-flex align-items-center justify-content-center mx-lg-4">
+<div class="d-flex align-items-center justify-content-center mx-lg-5 m-4 w-100 flex-wrap">
+      <div class="mb-3 d-flex align-items-center justify-content-center" style="width: 50vh;">
         {% if contact.picture %}
-            <img alt=" {{contact.first_name}} {{contact.last_name}} " src="{{ contact.picture.url}} " class="img-fluid rounded-circle border border-4 border-warning shadow-big">
-        {% else %}
-        
+            <img alt="{{contact.first_name}} {{contact.last_name}}" src="{{contact.picture.url}}" style="object-fit: cover; height: 45vh; width: 45vh;" class="rounded-circle border border-4 border-warning shadow-big img-fluid">
         {% endif %}
       </div>
-      <div class="d-flex flex-column justify-content-center align-items-center mx-lg-4">
+      <div class="d-flex flex-column justify-content-center align-items-center" style="width: 65vh;">
         <div class="card-body">
           <h5 class="card-title fs-1 mb-3">{{ contact.first_name }} {{ contact.last_name }}</h5>
           <p class=""><span class="fw-bold">Email: </span> <br>{{ contact.email }}</p>
@@ -36,24 +33,5 @@
         </div>
       </div>
     </div>
-  </div>
-{% comment %} 
-    <div class="d-fle flex-wrap">
-        <div class="d-flex">
-            {% if contact.picture %}
-                <img  class="img-fluid rounded-start" alt=" {{contact.first_name}} {{contact.last_name}} " src="{{ contact.picture.url}} ">
-            {% endif %}
-        </div>
-        <div class="d-flex flex-column w-100">
-            <h5 class="fs-2"> {{ contact.first_name }} {{ contact.last_name }}</h5>
-            <p class="fs-5">{{ contact.email }}</p>
-            <p class="fs-5">{{ contact.phone }}</p>
-            <p class="fs-5">{{ contact.created_date }}</p>
-            <p class="fs-5">{{ contact.category.name }}</p>
-            <p class="fs-5">{{ contact.description }}</p>
-            <p class="fs-5"><small class="text-body-secondary"> ID: {{ contact.id }}</small></p>
-            
-        </div>
-    </div> {% endcomment %}
 
 {% endblock corpo %}
