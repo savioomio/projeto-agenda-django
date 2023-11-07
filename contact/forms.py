@@ -1,6 +1,10 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import UserChangeForm
 from . import models
+
+class RegisterForm(UserChangeForm):
+    ...
 
 class ContactForm(forms.ModelForm):
     picture = forms.ImageField(
