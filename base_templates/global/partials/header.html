@@ -18,6 +18,9 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href=" {% url "contact:create" %} ">Create Contact</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href=" {% url "contact:register" %} ">Registe User</a>
+            </li>
           </ul>
           <form class="d-flex" role="search" method="GET" action=" {% url "contact:search" %} ">
             <input class="form-control me-2 alert-warning focus-ring focus-ring-warning" type="search" placeholder="Search" aria-label="Search" id="search" name="q" value="{{search_value}}">
