@@ -2,15 +2,15 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.db.models import Q
 from django.core.paginator import Paginator
 from contact.models import Contact
-# from django.http import JsonResponse
-# from django.template.loader import render_to_string
+from django.http import Http404
 
 
 def index(request):
-    contacts = Contact.objects \
+    contacts = Contact.objects\
         .filter(show=True)\
         .order_by('-id')
 
+    # paginação dos contatos
     paginator = Paginator(contacts, 25)  
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
@@ -56,16 +56,23 @@ def search(request):
         context
     )
 
-def contact(request, contact_id):
-    single_contact = get_object_or_404(
-        Contact, pk=contact_id, show=True
-    )
 
-    site_title = f'{single_contact.first_name} {single_contact.last_name}'
+
+def contact(request, contact_id):
+    site_title = "Nenhum contato"
+    try:
+        contact = Contact.objects.get(pk=contact_id)    
+        if contact:    
+            saida_contato = "Este ID possui contato"
+            site_title = f'{contact.first_name} {contact.last_name}'
+    except :
+        contact = "Sem registro"
+        saida_contato = f'O ID"{contact_id}" não possui um contato!'
 
     context = {
-        'contact': single_contact,
+        'contact': contact,
         'site_title': site_title,
+        'saida_contato': saida_contato,
     }
 
     return render(

@@ -2,7 +2,8 @@
 
 {% block corpo %}
 <div class="d-flex align-items-center justify-content-center mx-lg-5 m-4 w-100 flex-wrap">
-      <div class="mb-3 d-flex align-items-center justify-content-center" style="width: 50vh;">
+  {% if contact.id %}    
+  <div class="mb-3 d-flex align-items-center justify-content-center" style="width: 50vh;">
         {% if contact.picture %}
           <img alt="{{contact.first_name}} {{contact.last_name}}" src="{{contact.picture.url}}" style="object-fit: cover; height: 45vh; width: 45vh;" class="rounded-circle border border-4 border-warning shadow-big img-fluid">
         {% else %}
@@ -33,7 +34,7 @@
                     {% csrf_token %}
                     {% if confirmation == 'no' %}
                         <input type="hidden" name="confirmation" value="yes" >
-                        <button class="btn fw-semibold btn-danger w-100" type="submit">Confirma?</button>
+                        <button class="btn fw-semibold btn-outline-dark w-100" type="submit">Confirma?</button>
                     {% else %}
                         <button class="btn fw-semibold btn-danger w-100" type="submit">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -46,6 +47,12 @@
             </div>
         </div>
       </div>
+      {% else %}
+
+      <h1 class="fs-2 form-text">{{saida_contato}}</h1>
+
+      {% endif %}
     </div>
 
 {% endblock corpo %}
+
