@@ -12,7 +12,7 @@ def create(request):
         context = {
             'form': form,
             'form_action': form_action,
-        }
+        } 
 
         if form.is_valid():
             contact = form.save()
