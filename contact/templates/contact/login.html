@@ -1,0 +1,17 @@
+{% extends "global/base.html" %}
+
+{% block corpo %}
+
+<div class="container m-3">    
+    {% include "global/partials/message.html" %}
+    <h2 class="mb-3 fs-2 form-text text-center">Login user</h2>
+    {% if user.is_authenticated %}
+        <p>Este usuario está logado {{ user.username }} <br>
+            Clique <a href="{% url "contact:logout" %}">aqui</a> para poder sair
+        </p>
+    {% else %}
+        {% include "contact/partials/_user-form.html" %}
+    {% endif %}
+</div>
+
+{% endblock corpo %}
