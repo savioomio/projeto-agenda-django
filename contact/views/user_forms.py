@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages, auth
-from contact.forms import RegisterForm
+from contact.forms import RegisterForm, RegisterUpdateForm
 
 
 def register(request):
@@ -24,6 +24,35 @@ def register(request):
         }
     )
 
+def user_update(request):
+    form = RegisterUpdateForm(instance=request.user)
+
+    if request.method != 'POST':
+        return render(
+            request,
+            'contact/user_update.html',
+            {
+                'form': form,
+                'site_title': "Update User"
+            }
+        )
+
+    form = RegisterUpdateForm(data=request.POST, instance=request.user)
+
+    if not form.is_valid():
+        return render(
+            request,
+            'contact/user_update.html',
+            {
+                'form': form,
+                'site_title': "Update User"
+            }
+        )
+
+    form.save()
+    return redirect('contact:user_update')
+
+
 class BootstrapAuthenticationForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(BootstrapAuthenticationForm, self).__init__(*args, **kwargs)
@@ -39,8 +68,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             auth.login(request, user)
-            print(user) 
-            messages.success(request, 'Logado com sucesso!')
+            messages.success(request, f'Usuario {user.username} logado com sucesso!')
             return redirect('contact:index')
         messages.error(request, 'Login inválido')
     
