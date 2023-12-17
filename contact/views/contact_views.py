@@ -1,10 +1,10 @@
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.core.paginator import Paginator
 from contact.models import Contact
-from django.http import Http404
+from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url='contact:login')
 def index(request):
     contacts = Contact.objects\
         .filter(show=True)\
@@ -26,6 +26,7 @@ def index(request):
         context
     )
 
+@login_required(login_url='contact:login')
 def search(request):
     search_value = request.GET.get('q', '').strip()
 
@@ -57,7 +58,7 @@ def search(request):
     )
 
 
-
+@login_required(login_url='contact:login')
 def contact(request, contact_id):
     site_title = "Nenhum contato"
     try:
