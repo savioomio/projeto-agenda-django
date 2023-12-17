@@ -23,7 +23,7 @@
           <p class=""><span class="fw-bold">Categoria:</span> <br> {{ contact.category.name }}</p>
           <p class="text-break"><span class="fw-bold">Descrição:</span> <br> {{ contact.description }}</p>
           <p class="card-text"><small class="text-body-secondary"><span class="fw-bold">ID:</span> <br> {{ contact.id }}</small></p>
-
+        {% if user == contact.owner %}
           <div class="d-flex justify-content-around ">
                 <a class="btn btn-primary fw-semibold w-100 me-2" href=" {% url "contact:update" contact.id %} ">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -42,9 +42,9 @@
                           </svg>  Deletar
                         </button>
                     {% endif %}
-            
                 </form>
             </div>
+          {% endif %}
         </div>
       </div>
       {% else %}

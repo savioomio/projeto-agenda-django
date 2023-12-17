@@ -16,8 +16,9 @@
           </tr>
         </thead>
         <tbody class="table-group-divider">
-    
+          
             {% for contact in page_obj %}
+                    {% if user == contact.owner %}
                     <tr>
                         <th scope="row">
                             <a 
@@ -40,9 +41,9 @@
                             {{contact.email}}
                         </td>
                     </tr>
-                
+              {% endif %}   
             {% endfor %}
-    
+
         </tbody>
       </table>
       {% else %}
@@ -60,12 +61,4 @@
       </div>
 </div>
 {% endif %}
-{% comment %}<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script>
-    const inputSearch = document.getElementById("search")
-    inputSearch.addEventListener("change",(e)=>{
-        console.log("oi")
-    })
-    console.log(inputSearch)
-</script> {% endcomment %}
 {% endblock corpo %}
